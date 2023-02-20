@@ -1,7 +1,8 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
 
+
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+
+        if( Auth::user() ) //se valida si esta logueado
+            if( Auth::user()->rol =='admin' ) //se valida el tipo de usuario
+                return view('admin');
+            else
+                return view('dashboard');
+        else
+            return redirect('/login');
+    
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
