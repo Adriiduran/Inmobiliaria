@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inmueble extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $fillable = [
         'descripcion',
@@ -15,6 +16,6 @@ class Inmueble extends Model
         'poblacion',
         'precio',
         'metrosCuadrados',
-        'imagen'
+        'imagen',
     ];
 }
