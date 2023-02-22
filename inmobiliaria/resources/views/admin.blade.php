@@ -35,7 +35,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <button type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                {{ __('Perfil') }}
+            </button>
+        </form>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
 
@@ -93,6 +99,7 @@
                                         <th>Población</th>
                                         <th>Precio</th>
                                         <th>Metros Cuadrados</th>
+                                        <th>Accion</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -103,10 +110,11 @@
                                         <th>Población</th>
                                         <th>Precio</th>
                                         <th>Metros Cuadrados</th>
+                                        <th>Accion</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    @foreach ($inmuebles as $inmueble)
+                                    @forelse ($inmuebles as $inmueble)
                                         <tr>
                                             <td>{{ $inmueble->id }}</td>
                                             <td>{{ $inmueble->descripcion }}</td>
@@ -114,8 +122,28 @@
                                             <td>{{ $inmueble->poblacion }}</td>
                                             <td>{{ $inmueble->precio }}€</td>
                                             <td>{{ $inmueble->metrosCuadrados }}</td>
+
+
+<!-- resources/views/note.blade.php -->
+
+
+    <!-- El resto del codigo aqui -->
+        <td>
+    <form method="POST" action="{{ url("admin/{$inmueble->id}") }}">
+      @csrf
+      @method('DELETE')
+
+      <button type="submit">Eliminar</button>
+    </form>
+
+@empty
+  <!-- ... -->
+
+
+
+  </td>
                                         </tr>
-                                    @endforeach
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

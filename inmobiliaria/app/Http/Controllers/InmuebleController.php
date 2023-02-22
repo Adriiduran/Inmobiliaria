@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Inmueble;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class InmuebleController extends Controller
 {
@@ -14,12 +18,11 @@ class InmuebleController extends Controller
         return compact('inmuebles');
     }
 
-    // function delete(Inmueble $inmueble)
-    // {
-    //     $inmueble->delete();
-
-    //     return redirect()->route('inmueble.index');
-    // }
+     function destroy($id): RedirectResponse
+     {
+        DB::table('inmuebles')->delete($id);
+         return redirect("/");
+     }
 
     // function store(Request $request)
     // {

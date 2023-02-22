@@ -35,7 +35,7 @@ Route::get('/', function () {
         $inmuebles = DB::table('inmuebles')->get();
         return view('welcome', ['inmuebles' => $inmuebles]);
     }
-})->middleware(['auth']);
+});
 
 Route::get('/admin', function () {
     if (Auth::user()) //se valida si esta logueado
@@ -89,6 +89,10 @@ Route::get('/dashboard', function () {
         return view('welcome', ['inmuebles' => $inmuebles]);
     }
 })->middleware(['auth']);
+
+Route::delete('/admin/{id}', [InmuebleController::class, 'destroy']);
+
+    
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
