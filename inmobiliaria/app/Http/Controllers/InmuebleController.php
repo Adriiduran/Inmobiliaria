@@ -10,13 +10,8 @@ class InmuebleController extends Controller
 {
     function index()
     {
-        $inmuebles = Inmueble::select('inmuebles.*')->paginate(6);
-        return view('welcome', compact('inmuebles'));
-    }
-
-    function admin(){
         $inmuebles = Inmueble::select('inmuebles.*');
-        return view('admin', compact('inmuebles'));
+        return compact('inmuebles');
     }
 
     // function delete(Inmueble $inmueble)

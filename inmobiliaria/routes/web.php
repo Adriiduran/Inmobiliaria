@@ -3,6 +3,7 @@
 use App\Http\Controllers\InmuebleController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
+use App\Models\Inmueble;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -20,20 +21,51 @@ use Illuminate\Support\Facades\DB;
 */
 
 
-Route::get('/', [InmuebleController::class, 'index']);
+Route::get('/', function () {
+    if (Auth::user()) //se valida si esta logueado
+        if (Auth::user()->rol == 'admin') //se valida el tipo de usuario
+            return redirect('/admin');
+        else {
+            $inmuebles = DB::table('inmuebles')->get();
+            return view('welcome', ['inmuebles' => $inmuebles]);
+        }
+
+    else {
+        $inmuebles = DB::table('inmuebles')->get();
+        return view('welcome', ['inmuebles' => $inmuebles]);
+    }
+});
 Route::get('/admin', function () {
-    $inmuebles = DB::table('inmuebles')->get();
-    return view('admin', ['inmuebles' => $inmuebles]);
+    if (Auth::user()) //se valida si esta logueado
+        if (Auth::user()->rol == 'admin'){
+            $inmuebles = DB::table('inmuebles')->get();
+            return view('admin', ['inmuebles' => $inmuebles]);
+        } //se valida el tipo de usuario
+            
+        else {
+            $inmuebles = DB::table('inmuebles')->get();
+            return view('welcome', ['inmuebles' => $inmuebles]);
+        }
+
+    else {
+        $inmuebles = DB::table('inmuebles')->get();
+        return view('welcome', ['inmuebles' => $inmuebles]);
+    }
 });
 
 Route::get('/dashboard', function () {
     if (Auth::user()) //se valida si esta logueado
         if (Auth::user()->rol == 'admin') //se valida el tipo de usuario
             return redirect('/admin');
-        else
-            return view('welcome');
-    else
-        return view('welcome');
+        else {
+            $inmuebles = DB::table('inmuebles')->get();
+            return view('welcome', ['inmuebles' => $inmuebles]);
+        }
+
+    else {
+        $inmuebles = DB::table('inmuebles')->get();
+        return view('welcome', ['inmuebles' => $inmuebles]);
+    }
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
