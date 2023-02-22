@@ -22,7 +22,7 @@ class InmuebleFactory extends Factory
             'poblacion'=> $this->faker->paragraph(),
             'precio'=> $this->faker->numberBetween(100000,1000000),
             'metrosCuadrados'=> $this->faker->numberBetween(50,300),
-            'imagen' => $this->faker->randomElement(['/resources/imagenes/img1.png','/resources/imagenes/img2.png']),
+            'imagen' => $this->faker->randomElement(['imagenes/img1.png','imagenes/img2.png']),
         ];
     }
 }
