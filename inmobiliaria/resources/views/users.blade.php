@@ -12,7 +12,6 @@
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -48,11 +47,12 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Sitios Administrativos</div>
-                        <a class="nav-link" href="{{ url('/admin/usuarios') }}">
+                        <div class="sb-sidenav-menu-heading">Sitios administrativos</div>
+                        <a class="nav-link" href="{{ url('/admin') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Usuarios
+                            Inmuebles
                         </a>
+                        
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -65,11 +65,11 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Administracion Inmuebles</h1>
+                    <h1 class="mt-4">Administracion Usuarios</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Admin</li>
                     </ol>
-   
+                    
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
@@ -80,32 +80,27 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Descripción</th>
-                                        <th>Dirección</th>
-                                        <th>Población</th>
-                                        <th>Precio</th>
-                                        <th>Metros Cuadrados</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Rol</th>
+
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Descripción</th>
-                                        <th>Dirección</th>
-                                        <th>Población</th>
-                                        <th>Precio</th>
-                                        <th>Metros Cuadrados</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Rol</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    @foreach ($inmuebles as $inmueble)
+                                    @foreach ($users as $user)
                                         <tr>
-                                            <td>{{ $inmueble->id }}</td>
-                                            <td>{{ $inmueble->descripcion }}</td>
-                                            <td>{{ $inmueble->direccion }}</td>
-                                            <td>{{ $inmueble->poblacion }}</td>
-                                            <td>{{ $inmueble->precio }}€</td>
-                                            <td>{{ $inmueble->metrosCuadrados }}</td>
+                                            <td>{{ $user->id }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->rol }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

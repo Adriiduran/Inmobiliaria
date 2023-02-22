@@ -35,11 +35,31 @@ Route::get('/', function () {
         return view('welcome', ['inmuebles' => $inmuebles]);
     }
 });
+
 Route::get('/admin', function () {
     if (Auth::user()) //se valida si esta logueado
         if (Auth::user()->rol == 'admin'){
             $inmuebles = DB::table('inmuebles')->get();
             return view('admin', ['inmuebles' => $inmuebles]);
+        } //se valida el tipo de usuario
+            
+        else {
+            $inmuebles = DB::table('inmuebles')->get();
+            return view('welcome', ['inmuebles' => $inmuebles]);
+        }
+
+    else {
+        $inmuebles = DB::table('inmuebles')->get();
+        return view('welcome', ['inmuebles' => $inmuebles]);
+    }
+});
+
+
+Route::get('/admin/usuarios', function () {
+    if (Auth::user()) //se valida si esta logueado
+        if (Auth::user()->rol == 'admin'){
+            $users = DB::table('users')->get();
+            return view('users', ['users' => $users]);
         } //se valida el tipo de usuario
             
         else {
