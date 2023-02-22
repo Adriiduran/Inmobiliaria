@@ -9,8 +9,6 @@
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
         html {
@@ -388,10 +386,6 @@
             font-family: 'Nunito', sans-serif;
         }
 
-        img {
-            width: 30%;
-            height: 30%;
-        }
     </style>
     @vite(['./resources/js/bootstrap.js', '/resources/css/styles.css' , '/resources/css/sb-admin-2.min.css'])
 </head>
