@@ -21,7 +21,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-    @vite(['/resources/js/datatables-simple-demo.js','/resources/js/booststrap.js','/resources/js/scripts.js', 'resources/css/styles.css','/resources/js/app.js','/resources/js/tables2.js',])
+    @vite(['/resources/js/datatables-simple-demo.js','/resources/js/scripts.js', '/resources/css/styles.css','/resources/js/app.js','/resources/js/tables2.js',])
     </head>
     <body class="sb-nav-fixed">
    
