@@ -1,7 +1,11 @@
 <?php
+
+use App\Http\Controllers\InmuebleController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+
 
 
 /*
@@ -15,22 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome'); 
+
+Route::get('/', [InmuebleController::class, 'index']);
+Route::get('/admin', function () {
+    $inmuebles = DB::table('inmuebles')->get();
+    return view('admin', ['inmuebles' => $inmuebles]);
 });
 
-
-
 Route::get('/dashboard', function () {
-
-        if( Auth::user() ) //se valida si esta logueado
-            if( Auth::user()->rol =='admin' ) //se valida el tipo de usuario
-                return view('admin');
-            else
-                return view('dashboard');
+    if (Auth::user()) //se valida si esta logueado
+        if (Auth::user()->rol == 'admin') //se valida el tipo de usuario
+            return redirect('/admin');
         else
-            return redirect('/login');
-    
+            return view('welcome');
+    else
+        return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -39,4 +42,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// Route::get('/delete/{incidencia}', [IncidenciaController::class, 'delete'])->middleware(['auth'])->name('incidencia.delete');
+// Route::get('/reparar/{incidencia}', [IncidenciaController::class, 'reparar'])->middleware(['auth'])->name('incidencia.reparar');
+// Route::get('/modificar/{incidencia}', [IncidenciaController::class, 'modificar'])->middleware(['auth'])->name('incidencia.modificar');
+// Route::post('/store', [IncidenciaController::class, 'store'])->middleware(['auth'])->name('incidencia.store');
+// Route::put('/update/{incidencia}', [IncidenciaController::class, 'update'])->middleware(['auth'])->name('incidencia.update');
+
+// Route::get('/addform', [FormsController::class, 'add'])->middleware(['auth'])->name('form.add');
+// Route::get('/updateForm/{incidencia}', [FormsController::class, 'update'])->middleware(['auth'])->name('form.update');
+
+require __DIR__ . '/auth.php';
