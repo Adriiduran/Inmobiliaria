@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 
+
 Route::get('/', function () {
     if (Auth::user()) //se valida si esta logueado
         if (Auth::user()->rol == 'admin') //se valida el tipo de usuario
@@ -34,7 +35,7 @@ Route::get('/', function () {
         $inmuebles = DB::table('inmuebles')->get();
         return view('welcome', ['inmuebles' => $inmuebles]);
     }
-});
+})->middleware(['auth']);
 
 Route::get('/admin', function () {
     if (Auth::user()) //se valida si esta logueado
@@ -52,10 +53,10 @@ Route::get('/admin', function () {
         $inmuebles = DB::table('inmuebles')->get();
         return view('welcome', ['inmuebles' => $inmuebles]);
     }
-});
+})->middleware(['auth']);
 
 
-Route::get('/admin/usuarios', function () {
+Route::get('admin/usuarios', function () {
     if (Auth::user()) //se valida si esta logueado
         if (Auth::user()->rol == 'admin'){
             $users = DB::table('users')->get();
@@ -71,7 +72,8 @@ Route::get('/admin/usuarios', function () {
         $inmuebles = DB::table('inmuebles')->get();
         return view('welcome', ['inmuebles' => $inmuebles]);
     }
-});
+})->middleware(['auth']);
+
 
 Route::get('/dashboard', function () {
     if (Auth::user()) //se valida si esta logueado
@@ -86,7 +88,7 @@ Route::get('/dashboard', function () {
         $inmuebles = DB::table('inmuebles')->get();
         return view('welcome', ['inmuebles' => $inmuebles]);
     }
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
