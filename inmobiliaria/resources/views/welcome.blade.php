@@ -20,7 +20,11 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+<<<<<<< HEAD
     @vite(['./resources/js/bootstrap.js', '/resources/css/styles.css' , '/resources/css/sb-admin-2.min.css'])
+=======
+    @vite(['resources/js/bootstrap.js', 'resources/css/styles.css' , 'resources/css/sb-admin-2.min.css'])
+>>>>>>> 128cc427f572d47b3c24d78fb66ebeb3dcb42a58
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
