@@ -21,6 +21,10 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+
+        main{
+            background-color: #f4f4f4f4;
+        }
     </style>
     @vite(['/resources/js/datatables-simple-demo.js', '/resources/js/scripts.js', '/resources/css/styles.css', '/resources/js/app.js', '/resources/js/tables2.js'])
 </head>
@@ -45,7 +49,7 @@
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-cog"></i></a>
 
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
+                    <li><a class="dropdown-item" href="{{route('profile.edit') }}">Perfil</a></li>
                     </form>
                     <li>
                         <hr class="dropdown-divider" />
@@ -94,16 +98,8 @@
         <div id="layoutSidenav_content">
 
             <main>
-
-
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Administracion Inmuebles</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Admin</li>
-                    </ol>
-
-                    <div class="row">
-
+                    <div class="row pt-4">
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -190,7 +186,7 @@
 
 
 
-                    <div class="card mb-4">
+                    <div class="card mb-4 shadow">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             INMUEBLES
