@@ -263,7 +263,7 @@
                         </div>
                     </div>
                 
-                </div>
+         
 
                 <div class="card mb-4 shadow">
                     <div class="card-header">
@@ -281,6 +281,7 @@
                                     <th>Precio</th>
                                     <th>Metros Cuadrados</th>
                                     <th>Accion</th>
+                                    
                                 </tr>
                             </thead>
                             <tfoot>
@@ -323,6 +324,7 @@
 
 
                                     </td>
+                                        
                                 </tr>
                                 @endforelse
                             </tbody>
