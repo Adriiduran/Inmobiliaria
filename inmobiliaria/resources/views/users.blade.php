@@ -12,32 +12,27 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <style>
         body {
             font-family: 'Nunito', sans-serif;
         }
     </style>
-    @vite(['/resources/sass/app.scss', '/resources/js/datatables-simple-demo.js', '/resources/js/scripts.js', '/resources/css/styles.css', '/resources/js/app.js', '/resources/js/tables2.js'])
+    @vite(['/resources/sass/app.scss','/resources/js/datatables-simple-demo.js', '/resources/js/scripts.js', '/resources/css/styles.css', '/resources/js/app.js', '/resources/js/tables2.js'])
 </head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3 me-4" href="/"><i class=" fas fa-cat me-2"></i>INMOBILIARIA</a>
+        <a class="navbar-brand ps-3" href="/"><i class=" fas fa-cat"></i> INMOBILIARIA</a>
         <!-- Sidebar Toggle-->
-        <div class="d-flex justify-content-between w-100 align-items-center">
-            <div>
-                <button class="btn btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                        class="	fas fa-outdent"></i></button>
-            </div>
+        <div><button class="btn btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-outdent"></i></button></div>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        </form>
+        <!-- Navbar-->
+        <!-- Navbar-->
 
-            <h5 class="text-white">PANEL DE ADMINISTRACIÓN</h5>
-
-            <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-cog"></i></a>
@@ -48,39 +43,17 @@
                         <hr class="dropdown-divider" />
                     </li>
 
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-cog"></i></a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
 
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                        <button type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                            {{ __('Desconectar') }}
+                        </button>
+                    </form>
 
-                            <button type="submit"
-                                class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                                {{ __('Perfil') }}
-                            </button>
-                        </form>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <button type="submit"
-                                class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                                {{ __('Desconectar') }}
-                            </button>
-                        </form>
-
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
+                </ul>
+            </li>
+        </ul>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -169,9 +142,7 @@
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -232,28 +203,26 @@
                                 </tfoot>
                                 <tbody>
                                     @forelse ($users as $user)
-                                        <tr>
-                                            <td>{{ $user->id }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->rol }}</td>
-                                            <td>
-                                                <form method="POST"
-                                                    action="{{ url("admin/usuarios/{$user->id}") }}">
-                                                    @csrf
-                                                    @method('DELETE')
+                                    <tr>
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->rol }}</td>
+                                        <td>
+                                            <form method="POST" action="{{ url("admin/usuarios/{$user->id}") }}">
+                                                @csrf
+                                                @method('DELETE')
 
-                                                    <button type="submit" class="btn btn-outline-danger btn-xs"><i
-                                                            class="fa fa-trash" aria-hidden="true"></i></button>
-                                                </form>
+                                                <button type="submit" class="btn btn-outline-danger btn-xs"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </form>
 
                                             @empty
-                                                <!-- ... -->
+                                            <!-- ... -->
 
 
 
-                                            </td>
-                                        </tr>
+                                        </td>
+                                    </tr>
                                     @endforelse
                                 </tbody>
                             </table>
