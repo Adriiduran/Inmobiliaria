@@ -42,12 +42,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user-cog"></i></a>
 
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-
-                        <button type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                            {{ __('Perfil') }}
-                        </button>
+                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
                     </form>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                     <li>
