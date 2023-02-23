@@ -39,4 +39,12 @@ class InmuebleController extends Controller
 
     //     return view('formUpdate', compact('inmueble'))->with('success','Registro modificado correctamente.');
     // }
+
+
+        function store(Request $request)
+     {
+
+        Inmueble::create($request->all());
+         return redirect("/");
+     }
 }

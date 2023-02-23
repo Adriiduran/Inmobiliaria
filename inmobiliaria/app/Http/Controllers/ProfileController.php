@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+
 class ProfileController extends Controller
 {
     /**
@@ -62,5 +65,15 @@ class ProfileController extends Controller
     {
         DB::table('users')->delete($id);
         return redirect("/admin/usuarios");
+    }
+
+    function store(Request $request)
+    {
+
+        DB::table('users')->insert(request()->except(['_token']));
+        Hash::make($request->password);
+
+        
+        return redirect("/");
     }
 }
