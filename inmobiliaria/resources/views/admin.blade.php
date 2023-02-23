@@ -41,6 +41,7 @@
 
             <!-- Navbar-->
 
+<<<<<<< HEAD
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -49,6 +50,15 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
+=======
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</a></li>
+                    </form>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+>>>>>>> d0ebc093844761adf69209cfcb336ad15a2ffe12
 
                             <button type="submit"
                                 class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
