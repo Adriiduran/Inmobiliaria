@@ -98,6 +98,7 @@
                                         <th>Nombre</th>
                                         <th>Email</th>
                                         <th>Rol</th>
+                                        <th>Accion</th>
 
                                     </tr>
                                 </thead>
@@ -107,17 +108,32 @@
                                         <th>Nombre</th>
                                         <th>Email</th>
                                         <th>Rol</th>
+                                        <th>Accion</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    @foreach ($users as $user)
+                                    @forelse ($users as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->rol }}</td>
+                                            <td>
+    <form method="POST" action="{{ url("admin/usuarios/{$user->id}") }}">
+      @csrf
+      @method('DELETE')
+
+      <button type="submit">Eliminar</button>
+    </form>
+
+@empty
+  <!-- ... -->
+
+
+
+  </td>
                                         </tr>
-                                    @endforeach
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

@@ -91,6 +91,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth']);
 
 Route::delete('/admin/{id}', [InmuebleController::class, 'destroy']);
+Route::delete('/admin/usuarios/{user}', [ProfileController::class, 'destroys']);
 
     
 

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\DB;
 class ProfileController extends Controller
 {
     /**
@@ -56,5 +56,11 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function destroys($id): RedirectResponse
+    {
+        DB::table('users')->delete($id);
+        return redirect("/admin/usuarios");
     }
 }
