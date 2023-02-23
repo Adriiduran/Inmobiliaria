@@ -25,6 +25,13 @@
         main{
             background-color: #f4f4f4f4;
         }
+
+        .btn-añadir{
+            background-color: green;
+            padding: 4rem;
+            color: white;
+            border-radius: 2rem;
+        }
     </style>
     @vite(['/resources/js/datatables-simple-demo.js', '/resources/js/scripts.js', '/resources/css/styles.css', '/resources/js/app.js', '/resources/js/tables2.js'])
 </head>
@@ -184,7 +191,11 @@
                         </div>
                     </div>
 
-
+                    {{-- <div class="container-fluid m-4 d-flex justify-content-center align-items-center" id="btn-añadir">
+                        <div class="btn btn-success">
+                            <h4>Añadir Inmueble</h4>
+                        </div>
+                    </div> --}}
 
                     <div class="card mb-4 shadow">
                         <div class="card-header">
@@ -272,7 +283,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script>
-
 </body>
 
 </html>
