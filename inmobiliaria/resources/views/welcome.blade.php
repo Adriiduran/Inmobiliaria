@@ -380,35 +380,63 @@
             }
         }
     </style>
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
-    @vite(['./resources/js/bootstrap.js', '/resources/css/styles.css' , '/resources/css/sb-admin-2.min.css'])
+  
+    @vite(['/resources/css/styles.css','/resources/js/bootstrap.min.js'])
 </head>
 
 <body class="antialiased">
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+     <div class="container text-center">
+       <a class="navbar-brand logotext" href="#"><img src="images/house.png" width="30" height="30" alt="" > Habitando</a>
+
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+
+
+             <ul class="navbar-nav ml-auto  ">
+
+             @if (Route::has('login'))
+       
             @auth
+            
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-
-                <button type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                <li class="nav-item mr-lg-3 space_login">
+                <button type="submit">
                     {{ __('Cerrar Sesion') }}
                 </button>
+                   </li>
+             
                 @else
-                <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+                <li class="nav-item mr-lg-3 space_login">
+                   <a class="btn btn-primary btn-sm " href="{{ route('login') }}"></i><i class="far fa-user"></i> INGRESO</a>
+                   </li>
+               
 
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                <li class="nav-item ">
+                <a href="{{ route('register') }}" class="btn btn-primary btn-sm"></i><i class="far fa-edit"></i> REGISTRO</a>
+                  </li>
+                
                 @endif
                 @endauth
         </div>
         @endif
+             </ul>
+
+
+
+         
+       </div>
+     </div> 
+    
+    </nav>
+
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
@@ -454,6 +482,7 @@
             </div>
         </div>
     </div>
+  
 </body>
 
 </html>
