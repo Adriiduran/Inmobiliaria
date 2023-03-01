@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->text('descripcion');
             $table->string('direccion');
+            $table->string('reserva');
             $table->string('poblacion');
             $table->decimal('precio');
             $table->decimal('metrosCuadrados');
