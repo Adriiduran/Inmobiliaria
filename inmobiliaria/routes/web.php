@@ -94,6 +94,7 @@ Route::delete('/admin/{id}', [InmuebleController::class, 'destroy']);
 Route::post('/store', [InmuebleController::class, 'store'])->middleware(['auth'])->name('inmueble.store');
 
 Route::delete('/admin/usuarios/{user}', [ProfileController::class, 'destroys']);
+Route::put('/welcome/{inmueble}', [InmuebleController::class, 'reservar'])->name("inmueble.update");
 
     
 

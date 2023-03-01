@@ -473,6 +473,21 @@
                         <p class="card-text"><small class="text-muted">{{$inmueble->precio}}€</small>
                             <small class="text-muted font-weight-bold">{{$inmueble->metrosCuadrados}}m2</small>
                         </p>
+                        
+                        @if ($inmueble->reserva == "no")
+                        <p class="card-text"><small class="text-muted">
+                        <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
+                                            @csrf
+                                            @method('put')
+
+                                            <button type="submit" class="btn btn-outline-danger btn-xs" value=""><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                        </form>
+
+                                      
+                        </small> </p>
+                        @else
+                        <p class="card-text"><small class="text-muted">RESERVADO</small> </p>
+                       @endif
                     </div>
                 </div>
                 </div>
