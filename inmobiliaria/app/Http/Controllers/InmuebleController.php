@@ -48,11 +48,11 @@ class InmuebleController extends Controller
          return redirect("/");
      }
      
-     function reservar($id): RedirectResponse
+     function reservar($id,Request $request): RedirectResponse
      {
         Inmueble::where('id', $id)
-                ->update(['reserva' => "si"]);
+                ->update(['reserva' => $request->reservado]);
 
-         return redirect("/");
+        return redirect("/");
      }
 }

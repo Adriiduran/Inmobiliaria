@@ -282,6 +282,7 @@
                                     <th>ID</th>
                                     <th>Descripción</th>
                                     <th>Dirección</th>
+                                    <th>Reserva</th>
                                     <th>Población</th>
                                     <th>Precio</th>
                                     <th>Metros Cuadrados</th>
@@ -294,6 +295,7 @@
                                     <th>ID</th>
                                     <th>Descripción</th>
                                     <th>Dirección</th>
+                                    <th>Reserva</th>
                                     <th>Población</th>
                                     <th>Precio</th>
                                     <th>Metros Cuadrados</th>
@@ -306,6 +308,7 @@
                                     <td>{{ $inmueble->id }}</td>
                                     <td>{{ $inmueble->descripcion }}</td>
                                     <td>{{ $inmueble->direccion }}</td>
+                                    <td>{{ $inmueble->reserva }}</td>
                                     <td>{{ $inmueble->poblacion }}</td>
                                     <td>{{ $inmueble->precio }}€</td>
                                     <td>{{ $inmueble->metrosCuadrados }}</td>

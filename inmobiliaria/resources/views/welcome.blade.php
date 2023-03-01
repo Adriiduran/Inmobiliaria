@@ -383,89 +383,89 @@
     <link rel="stylesheet" href="resources/css/styles.css">
     <script src="resources/js/boostrap.min.js"></script>
 
-   
+
 </head>
 
 <body>
 
-<div class="container-fluid w-100">
+    <div class="container-fluid w-100">
 
 
-    <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- logo -->
-        <a class="navbar-brand" href="#">
-            <img src="http://www.tutorialesprogramacionya.com/imagenes/foto1.jpg" width="30" height="30" alt="">
-        </a>
+            <!-- logo -->
+            <a class="navbar-brand" href="#">
+                <img src="http://www.tutorialesprogramacionya.com/imagenes/foto1.jpg" width="30" height="30" alt="">
+            </a>
 
-        <!-- enlaces -->
-        <div class="collapse navbar-collapse justify-content-end bg-secondary" id="opciones">
-            <ul class="navbar-nav">
+            <!-- enlaces -->
+            <div class="collapse navbar-collapse justify-content-end bg-secondary" id="opciones">
+                <ul class="navbar-nav">
 
-                @if (Route::has('login'))
+                    @if (Route::has('login'))
 
-                @auth
+                    @auth
 
 
-                <form method="POST" action="{{ route('logout') }}" class="d-flex justify-content-center">
-                    @csrf
-                    <h5 class="h5">{{ Auth::user()->name }}</h5>
-                    <li class="nav-item h5">
-                        <button type="submit">
-                            {{ __('Cerrar Sesion') }}
-                        </button>
+                    <form method="POST" action="{{ route('logout') }}" class="d-flex justify-content-center">
+                        @csrf
+                        <h5 class="h5">{{ Auth::user()->name }}</h5>
+                        <li class="nav-item h5">
+                            <button type="submit">
+                                {{ __('Cerrar Sesion') }}
+                            </button>
+                        </li>
+
+
+                    </form>
+
+                    @else
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}"></i><i class="far fa-user"></i> INGRESO</a>
                     </li>
 
+                    @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="nav-link"></i><i class="far fa-edit"></i> REGISTRO</a>
+                    </li>
 
-                </form>
+                    @endif
+                    @endauth
 
-                @else
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}"></i><i class="far fa-user"></i> INGRESO</a>
-                </li>
-
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a href="{{ route('register') }}" class="nav-link"></i><i class="far fa-edit"></i> REGISTRO</a>
-                </li>
-
+                </ul>
                 @endif
-                @endauth
+            </div>
+        </nav>
 
-            </ul>
-            @endif
+
+
+
+        <!-- Hero -->
+
+        <div class="row">
+
+            <!-- columna 1 -->
+            <div class="col-md-12  h-75">
+
+                <img src="imagenes/img2.png" class="hero w-100" />
+
+            </div>
+
         </div>
-    </nav>
 
-    
-
-        
-<!-- Hero -->
-
-<div class="row">
-
-<!-- columna 1 -->
-<div class="col-md-12  h-75">
-
-    <img src="imagenes/img2.png" class="hero w-100" />
- 
-</div>
-
-</div>
-
-</div>  
+    </div>
 
 
     <div class="container">
         <div class="card-group mt-4">
-    
+
             @foreach ($inmuebles as $inmueble)
 
-                <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-4">
                 <div class="card text-center border-info h-100">
                     <div class="card-body">
                         <img class="card-img-top" src="{{asset($inmueble->imagen)}}" alt="Card image cap">
@@ -474,27 +474,42 @@
                         <p class="card-text"><small class="text-muted">{{$inmueble->precio}}€</small>
                             <small class="text-muted font-weight-bold">{{$inmueble->metrosCuadrados}}m2</small>
                         </p>
-                        
+                        @if (Route::has('login'))
+
+                        @auth
                         @if ($inmueble->reserva == "no")
                         <p class="card-text"><small class="text-muted">
-                        <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
-                                            @csrf
-                                            @method('put')
+                                <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
+                                    @csrf
+                                    @method('put')
 
-                                            <button type="submit" class="btn btn-outline-danger btn-xs" value="">RESERVAR<i class="fa fa-trash" aria-hidden="true"></i></button>
-                                        </form>
+                                    <button type="submit" class="btn btn-outline-danger btn-xs" value="{{Auth::user()->email}}" name="reservado">RESERVAR<i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </form>
 
-                                      
-                        </small> </p>
+
+                            </small> </p>
                         @else
-                        <p class="card-text"><small class="text-muted">RESERVADO</small> </p>
-                       @endif
+                        @if ($inmueble->reserva == Auth::user()->email)
+                        <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
+                                    @csrf
+                                    @method('put')
+
+                                    <button type="submit" class="btn btn-outline-primary btn-xs" value="no" name="reservado">QUITAR-RESERVA<i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </form>
+                       
+                        
+                            @else
+                        <p class="card-text"><small class="text-muted">RESERVADO {{$inmueble->reserva}}</small> </p>
+                        @endif
+                        @endif
+                        @endif
+                        @endauth
                     </div>
                 </div>
-                </div>
+            </div>
 
 
-                @endforeach
+            @endforeach
 
         </div>
     </div>
