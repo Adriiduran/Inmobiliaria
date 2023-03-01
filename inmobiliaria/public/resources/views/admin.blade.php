@@ -10,6 +10,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
@@ -32,14 +33,8 @@
             border-radius: 2rem;
         }
     </style>
-    
-        <link rel="stylesheet" href="resources/css/styles.css">
-    <script src="resources/js/boostrap.min.js"></script>
-    <script src="resources/js/scripts.js"></script>
-    <script src="resources/js/app.js"></script>
-    <script src="resources/js/tables2.js"></script>
-    <script src="resources/js/datatables-simple-demo.js"></script>
-    </head>
+    @vite(['/resources/js/datatables-simple-demo.js', '/resources/js/scripts.js', '/resources/css/styles.css', '/resources/js/app.js', '/resources/js/tables2.js'])
+</head>
 
 <body class="sb-nav-fixed ">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

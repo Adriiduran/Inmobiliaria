@@ -24,12 +24,7 @@
             background-color: #f4f4f4f4;
         }
     </style>
-           <link rel="stylesheet" href="resources/css/styles.css">
-    <script src="resources/js/boostrap.min.js"></script>
-    <script src="resources/js/scripts.js"></script>
-    <script src="resources/js/app.js"></script>
-    <script src="resources/js/tables2.js"></script>
-    <script src="resources/js/datatables-simple-demo.js"></script>
+    @vite(['/resources/sass/app.scss', '/resources/js/datatables-simple-demo.js', '/resources/js/scripts.js', '/resources/css/styles.css', '/resources/js/app.js', '/resources/js/tables2.js'])
 </head>
 
 <body class="sb-nav-fixed">

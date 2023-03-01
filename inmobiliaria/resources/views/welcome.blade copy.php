@@ -380,114 +380,109 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="resources/css/styles.css">
-    <script src="resources/js/boostrap.min.js"></script>
-
-   
+  
+    @vite(['/resources/css/styles.css','/resources/js/bootstrap.min.js'])
 </head>
 
 <body class="antialiased">
 
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+     <div class="container text-center">
+       <a class="navbar-brand logotext" href="#"><img src="images/house.png" width="30" height="30" alt="" > Habitando</a>
+
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
 
 
-    <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+             <ul class="navbar-nav ml-auto  ">
 
-        <!-- logo -->
-        <a class="navbar-brand" href="#">
-            <img src="http://www.tutorialesprogramacionya.com/imagenes/foto1.jpg" width="30" height="30" alt="">
-        </a>
-
-        <!-- enlaces -->
-        <div class="collapse navbar-collapse justify-content-end bg-secondary" id="opciones">
-            <ul class="navbar-nav">
-
-                @if (Route::has('login'))
-
-                @auth
-
-
-                <form method="POST" action="{{ route('logout') }}" class="d-flex justify-content-center">
-                    @csrf
-                    <h5 class="h5">{{ Auth::user()->name }}</h5>
-                    <li class="nav-item h5">
-                        <button type="submit">
-                            {{ __('Cerrar Sesion') }}
-                        </button>
-                    </li>
-
-
-                </form>
-
+             @if (Route::has('login'))
+       
+            @auth
+            
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <li class="nav-item mr-lg-3 space_login">
+                <button type="submit">
+                    {{ __('Cerrar Sesion') }}
+                </button>
+                   </li>
+             
                 @else
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}"></i><i class="far fa-user"></i> INGRESO</a>
-                </li>
+                <li class="nav-item mr-lg-3 space_login">
+                   <a class="btn btn-primary btn-sm " href="{{ route('login') }}"></i><i class="far fa-user"></i> INGRESO</a>
+                   </li>
+               
 
                 @if (Route::has('register'))
-                <li class="nav-item">
-                    <a href="{{ route('register') }}" class="nav-link"></i><i class="far fa-edit"></i> REGISTRO</a>
-                </li>
-
+                <li class="nav-item ">
+                <a href="{{ route('register') }}" class="btn btn-primary btn-sm"></i><i class="far fa-edit"></i> REGISTRO</a>
+                  </li>
+                
                 @endif
                 @endauth
-
-            </ul>
-            @endif
         </div>
+        @endif
+             </ul>
+
+
+
+         
+       </div>
+     </div> 
+    
     </nav>
 
-    
 
-        
-<!-- Hero -->
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
 
-<div class="row mt-3">
-
-<!-- columna 1 -->
-<div class="col-md-12  h-75">
-
-    <img src="imagenes/img2.png" class="hero w-100" />
- 
-</div>
-
-</div>
-
-</div>  
+                <div class="w-full md:w-3/5 mx-auto p-8 text-light">
+                    <p><strong>Inmuebles</strong></p>
 
 
-    <div class="container">
-        <div class="card-group mt-4">
-    
-            @foreach ($inmuebles as $inmueble)
-
-                <div class="col-12 col-lg-4">
-                <div class="card text-center border-info h-100">
-                    <div class="card-body">
+                    <div class="container text-primary">
+                        <div class="row">
+                            @foreach ($inmuebles as $inmueble)
+                            <!-- <div class="card mb-3">
                         <img class="card-img-top" src="{{asset($inmueble->imagen)}}" alt="Card image cap">
-                        <h4 class="card-title">{{$inmueble->direccion}}</h4>
-                        <p class="card-text">{{$inmueble->descripcion}}</p>
-                        <p class="card-text"><small class="text-muted">{{$inmueble->precio}}€</small>
-                            <small class="text-muted font-weight-bold">{{$inmueble->metrosCuadrados}}m2</small>
-                        </p>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"> {{$inmueble->direccion}}</h5>
+                            <p class="card-text text-primary">{{$inmueble->descripcion}}</p>
+                            <p class="card-text text-primary"><small class="text-muted">{{$inmueble->precio}}€</small>
+                                <small class="text-muted font-weight-bold">{{$inmueble->metrosCuadrados}}m2</small>
+                            </p>
+                        </div>
+                    </div> -->
+
+
+                            <div class="col-md-4 ">
+                                <div class="card ">
+                                    <img class="card-img-top" src="{{asset($inmueble->imagen)}}" alt="Card image cap">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-primary"> {{$inmueble->direccion}}</h5>
+                                    <p class="card-text text-primary">{{$inmueble->descripcion}}</p>
+                                    <p class="card-text text-primary"><small class="text-muted">{{$inmueble->precio}}€</small>
+                                <small class="text-muted font-weight-bold">{{$inmueble->metrosCuadrados}}m2</small>
+                            </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            @endforeach
+                        </div>
                     </div>
                 </div>
-                </div>
 
-
-                @endforeach
-
+            </div>
         </div>
     </div>
-
-
-    </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 </body>
 
 </html>
