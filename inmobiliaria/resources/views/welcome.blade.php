@@ -28,8 +28,7 @@
         }
     </style>
     <link rel="stylesheet" href="resources/css/styles.css">
-    {{-- Scripts --}}
-    {{-- <script src="../resources/js/bootstrap.min.js"></script> --}}
+    <script src="../resources/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -76,6 +75,9 @@
                                                         {{ __('Cerrar Sesion') }}
                                                     </button>
                                                 </li>
+                                            </div>
+                                            <div class="ms-3">
+                                            <li><a class="dropdown-item" href="{{route('profile.edit') }}">Perfil</a></li>
                                             </div>
                                         </form>
                                     @else
