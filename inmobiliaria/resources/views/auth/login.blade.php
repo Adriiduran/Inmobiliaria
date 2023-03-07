@@ -1,4 +1,4 @@
-@vite(['/resources/js/datatables-simple-demo.js', '/resources/js/scripts.js', '/resources/css/styles.css', '/resources/js/app.js', '/resources/js/tables2.js'])
+
 <link rel="stylesheet" href="resources/css/styles.css">
     <script src="resources/js/boostrap.min.js"></script>
     <script src="resources/js/scripts.js"></script>
