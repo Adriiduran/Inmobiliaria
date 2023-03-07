@@ -18,9 +18,9 @@ class InmuebleFactory extends Factory
     {
         return [
             'descripcion' => $this->faker->paragraph(),
-            'direccion' => $this->faker->randomElement(['Utrera','Montellano','Sevilla','Los Palacios']),
+            'direccion' => $this->faker->sentence(),
             'reserva' => "no",
-            'poblacion'=> $this->faker->paragraph(),
+            'poblacion'=> $this->faker->randomElement(['Utrera','Montellano','Sevilla','Los Palacios']),
             'precio'=> $this->faker->numberBetween(100000,1000000),
             'metrosCuadrados'=> $this->faker->numberBetween(50,300),
             'imagen' => $this->faker->randomElement(['imagenes/img1.png','imagenes/img2.png']),
