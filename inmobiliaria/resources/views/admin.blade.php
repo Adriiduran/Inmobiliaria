@@ -206,10 +206,10 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="needs-validation" novalidate action="{{route('inmueble.store')}}" method="POST">
+                                    <form class="needs-validation" action="{{route('inmueble.store')}}" method="POST">
                                     @csrf    
                                     <div class="m-3 form-floating position-relative">
-                                            <input type="text" name="descripcion" id="input-email" class="form-control" placeholder=" " required />
+                                            <input type="text" name="descripcion" id="input-email" class="form-control" placeholder=" " required="required" />
                                             <label for="input-email" class="form-label">Descripcion</label>
                                             <div id="email-help-block" class="form-text">
                                                 Breve descripcion del inmueble.
@@ -219,7 +219,7 @@
                                         </div>
 
                                         <div class="m-3 form-floating position-relative">
-                                            <input type="text" name="direccion" id="input-text" class="form-control" placeholder=" " required />
+                                            <input type="text" name="direccion" id="input-text" class="form-control" placeholder=" " required="required" />
                                             <label for="input-text" class="form-label">Direccion</label>
                                             <div id="text-help-block" class="form-text">
                                                 Direccion del inmueble.
@@ -230,7 +230,7 @@
 
 
                                         <div class="m-3 form-floating position-relative">
-                                            <input type="text" name="poblacion" id="input-text" class="form-control" placeholder=" " required />
+                                            <input type="text" name="poblacion" id="input-text" class="form-control" placeholder=" " required="required" />
                                             <label for="input-text" class="form-label">Poblacion</label>
                                             <div id="text-help-block" class="form-text">
                                                 Poblacion del inmueble.
@@ -240,7 +240,7 @@
                                         </div>
 
                                         <div class="m-3 form-floating position-relative">
-                                            <input type="number" name="precio" id="input-text" class="form-control" placeholder=" " required />
+                                            <input type="number" name="precio" id="input-text" class="form-control" placeholder=" " required="required" />
                                             <label for="input-number" class="form-label">Precio</label>
                                             <div id="text-help-block" class="form-text">
                                                 Precio del inmueble.
