@@ -145,7 +145,7 @@
                                     alt="Card image cap">
                                 <div class="p-4 d-flex align-items-center flex-column g-1">
                                     <h4 class="card-title">{{ $inmueble->direccion }}</h4>
-                                    <p class="card-text">Dirección: {{ $inmueble->descripcion }}</p>
+                                    <p class="card-text">{{ $inmueble->descripcion }}</p>
                                     <p class="card-text">Población: {{ $inmueble->poblacion }}</p>
                                     <small
                                         class="text-muted font-weight-bold">{{ $inmueble->metrosCuadrados }}m2</small>
