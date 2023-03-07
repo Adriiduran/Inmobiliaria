@@ -259,6 +259,7 @@
                                             <div class="invalid-tooltip">Direccion no valido</div>
                                         </div>
                                         <input type="hidden" name="imagen" value="imagenes/img2.png">
+                                        <input type="hidden" name="reserva" value="no">
                                 </div>
                                 <div class="text-center mb-3 mbr-section-btn">
                                     <button type="submit" class="btn btn-lg btn-primary display-4">Añadir <i class="bi bi-arrow-up-right-square"></i></button>

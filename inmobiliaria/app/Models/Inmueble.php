@@ -14,6 +14,7 @@ class Inmueble extends Model
         'descripcion',
         'direccion',
         'poblacion',
+        'reserva',
         'precio',
         'metrosCuadrados',
         'imagen',
