@@ -9,517 +9,199 @@
 
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    {{-- Styles --}}
     <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-        html {
-            line-height: 1.15;
-            -webkit-text-size-adjust: 100%
+        /*Simple Normalize*/
+        * {
+            box-sizing: border-box
         }
 
         body {
-            margin: 0
+            margin: 0;
+            padding: 0;
         }
 
-        a {
-            background-color: transparent
-        }
-
-        [hidden] {
-            display: none
-        }
-
-        html {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-            line-height: 1.5
-        }
-
-        *,
-        :after,
-        :before {
-            box-sizing: border-box;
-            border: 0 solid #e2e8f0
-        }
-
-        a {
-            color: inherit;
-            text-decoration: inherit
-        }
-
-        svg,
-        video {
-            display: block;
-            vertical-align: middle
-        }
-
-        video {
-            max-width: 100%;
-            height: auto
-        }
-
-        .bg-white {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity))
-        }
-
-        .bg-gray-100 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(243 244 246 / var(--tw-bg-opacity))
-        }
-
-        .border-gray-200 {
-            --tw-border-opacity: 1;
-            border-color: rgb(229 231 235 / var(--tw-border-opacity))
-        }
-
-        .border-t {
-            border-top-width: 1px
-        }
-
-        .flex {
-            display: flex
-        }
-
-        .grid {
-            display: grid
-        }
-
-        .hidden {
-            display: none
-        }
-
-        .items-center {
-            align-items: center
-        }
-
-        .justify-center {
-            justify-content: center
-        }
-
-        .font-semibold {
-            font-weight: 600
-        }
-
-        .h-5 {
-            height: 1.25rem
-        }
-
-        .h-8 {
-            height: 2rem
-        }
-
-        .h-16 {
-            height: 4rem
-        }
-
-        .text-sm {
-            font-size: .875rem
-        }
-
-        .text-lg {
-            font-size: 1.125rem
-        }
-
-        .leading-7 {
-            line-height: 1.75rem
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .ml-1 {
-            margin-left: .25rem
-        }
-
-        .mt-2 {
-            margin-top: .5rem
-        }
-
-        .mr-2 {
-            margin-right: .5rem
-        }
-
-        .ml-2 {
-            margin-left: .5rem
-        }
-
-        .mt-4 {
-            margin-top: 1rem
-        }
-
-        .ml-4 {
-            margin-left: 1rem
-        }
-
-        .mt-8 {
-            margin-top: 2rem
-        }
-
-        .ml-12 {
-            margin-left: 3rem
-        }
-
-        .-mt-px {
-            margin-top: -1px
-        }
-
-        .max-w-6xl {
-            max-width: 72rem
-        }
-
-        .min-h-screen {
-            min-height: 100vh
-        }
-
-        .overflow-hidden {
-            overflow: hidden
-        }
-
-        .p-6 {
-            padding: 1.5rem
-        }
-
-        .py-4 {
-            padding-top: 1rem;
-            padding-bottom: 1rem
-        }
-
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem
-        }
-
-        .pt-8 {
-            padding-top: 2rem
-        }
-
-        .fixed {
-            position: fixed
-        }
-
-        .relative {
-            position: relative
-        }
-
-        .top-0 {
-            top: 0
-        }
-
-        .right-0 {
-            right: 0
-        }
-
-        .shadow {
-            --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
-            --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-        }
-
-        .text-center {
-            text-align: center
-        }
-
-        .text-gray-200 {
-            --tw-text-opacity: 1;
-            color: rgb(229 231 235 / var(--tw-text-opacity))
-        }
-
-        .text-gray-300 {
-            --tw-text-opacity: 1;
-            color: rgb(209 213 219 / var(--tw-text-opacity))
-        }
-
-        .text-gray-400 {
-            --tw-text-opacity: 1;
-            color: rgb(156 163 175 / var(--tw-text-opacity))
-        }
-
-        .text-gray-500 {
-            --tw-text-opacity: 1;
-            color: rgb(107 114 128 / var(--tw-text-opacity))
-        }
-
-        .text-gray-600 {
-            --tw-text-opacity: 1;
-            color: rgb(75 85 99 / var(--tw-text-opacity))
-        }
-
-        .text-gray-700 {
-            --tw-text-opacity: 1;
-            color: rgb(55 65 81 / var(--tw-text-opacity))
-        }
-
-        .text-gray-900 {
-            --tw-text-opacity: 1;
-            color: rgb(17 24 39 / var(--tw-text-opacity))
-        }
-
-        .underline {
-            text-decoration: underline
-        }
-
-        .antialiased {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale
-        }
-
-        .w-5 {
-            width: 1.25rem
-        }
-
-        .w-8 {
-            width: 2rem
-        }
-
-        .w-auto {
-            width: auto
-        }
-
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr))
-        }
-
-        @media (min-width:640px) {
-            .sm\:rounded-lg {
-                border-radius: .5rem
-            }
-
-            .sm\:block {
-                display: block
-            }
-
-            .sm\:items-center {
-                align-items: center
-            }
-
-            .sm\:justify-start {
-                justify-content: flex-start
-            }
-
-            .sm\:justify-between {
-                justify-content: space-between
-            }
-
-            .sm\:h-20 {
-                height: 5rem
-            }
-
-            .sm\:ml-0 {
-                margin-left: 0
-            }
-
-            .sm\:px-6 {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem
-            }
-
-            .sm\:pt-0 {
-                padding-top: 0
-            }
-
-            .sm\:text-left {
-                text-align: left
-            }
-
-            .sm\:text-right {
-                text-align: right
-            }
-        }
-
-        @media (min-width:768px) {
-            .md\:border-t-0 {
-                border-top-width: 0
-            }
-
-            .md\:border-l {
-                border-left-width: 1px
-            }
-
-            .md\:grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-        }
-
-        @media (min-width:1024px) {
-            .lg\:px-8 {
-                padding-left: 2rem;
-                padding-right: 2rem
-            }
-        }
-
-        @media (prefers-color-scheme:dark) {
-            .dark\:bg-gray-800 {
-                --tw-bg-opacity: 1;
-                background-color: rgb(31 41 55 / var(--tw-bg-opacity))
-            }
-
-            .dark\:bg-gray-900 {
-                --tw-bg-opacity: 1;
-                background-color: rgb(17 24 39 / var(--tw-bg-opacity))
-            }
-
-            .dark\:border-gray-700 {
-                --tw-border-opacity: 1;
-                border-color: rgb(55 65 81 / var(--tw-border-opacity))
-            }
-
-            .dark\:text-white {
-                --tw-text-opacity: 1;
-                color: rgb(255 255 255 / var(--tw-text-opacity))
-            }
-
-            .dark\:text-gray-400 {
-                --tw-text-opacity: 1;
-                color: rgb(156 163 175 / var(--tw-text-opacity))
-            }
-
-            .dark\:text-gray-500 {
-                --tw-text-opacity: 1;
-                color: rgb(107 114 128 / var(--tw-text-opacity))
+        @media (min-width: 576px){
+            .imagen{
+                max-height: 12rem;
             }
         }
     </style>
     <link rel="stylesheet" href="resources/css/styles.css">
-    <script src="resources/js/boostrap.min.js"></script>
-
-
+    {{-- Scripts --}}
+    {{-- <script src="../resources/js/bootstrap.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-
-    <div class="container-fluid w-100">
-
-
-        <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- logo -->
-            <a class="navbar-brand" href="#">
-                <img src="http://www.tutorialesprogramacionya.com/imagenes/foto1.jpg" width="30" height="30" alt="">
-            </a>
-
-            <!-- enlaces -->
-            <div class="collapse navbar-collapse justify-content-end bg-secondary" id="opciones">
-                <ul class="navbar-nav">
-
-                    @if (Route::has('login'))
-
-                    @auth
-
-
-                    <form method="POST" action="{{ route('logout') }}" class="d-flex justify-content-center">
-                        @csrf
-                        <h5 class="h5">{{ Auth::user()->name }}</h5>
-                        <li class="nav-item h5">
-                            <button type="submit">
-                                {{ __('Cerrar Sesion') }}
-                            </button>
-                        </li>
-
-
-                    </form>
-
-                    @else
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}"></i><i class="far fa-user"></i> INGRESO</a>
-                    </li>
-
-                    @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link"></i><i class="far fa-edit"></i> REGISTRO</a>
-                    </li>
-
-                    @endif
-                    @endauth
-
-                </ul>
-                @endif
-            </div>
-        </nav>
-
-
-
-
-        <!-- Hero -->
-
+    <header class="container-fluid">
+        {{-- Navbar --}}
         <div class="row">
-
-            <!-- columna 1 -->
-            <div class="col-md-12  h-75">
-
-                <img src="imagenes/img2.png" class="hero w-100" />
-
+            <div class="col p-0">
+                <nav class="navbar navbar-expand-sm navbar-light bg-light">
+                    <div class="container-fluid d-flex align-items-center">
+                        <a class="navbar-brand" href="#"><img src="/imagenes/logo.png" width="60"
+                                height="30" alt="">Inmobiliaria Laravel</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+                            <ul class="navbar-nav container-fluid">
+                                @if (Route::has('login'))
+                                    @auth
+                                        <form method="POST" action="{{ route('logout') }}"
+                                            class="container-fluid d-flex justify-content-end align-items-center flex-column flex-sm-row">
+                                            @csrf
+                                            <div>
+                                                <h5 class="h5 text-dark"><span><svg xmlns="http://www.w3.org/2000/svg"
+                                                            width="16" height="16" fill="currentColor"
+                                                            class="bi bi-person" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                                                        </svg></span>{{ Auth::user()->name }}</h5>
+                                            </div>
+                                            <div class="ms-3">
+                                                <li class="nav-item h5 text-dark">
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <span> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor"
+                                                                class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                                                                <path fill-rule="evenodd"
+                                                                    d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                                                            </svg></span>
+                                                        {{ __('Cerrar Sesion') }}
+                                                    </button>
+                                                </li>
+                                            </div>
+                                        </form>
+                                    @else
+                                        <div
+                                            class="container-fluid d-flex justify-content-end align-items-center flex-column flex-sm-row">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" href="{{ route('login') }}"><span> <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-box-arrow-in-right"
+                                                            viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                                        </svg></span> Iniciar Sesión</a>
+                                            </li>
+                                            @if (Route::has('register'))
+                                                <li class="nav-item">
+                                                    <a href="{{ route('register') }}" class="nav-link text-dark"> <span><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                height="16" fill="currentColor" class="bi bi-person-add"
+                                                                viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                                                                <path
+                                                                    d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
+                                                            </svg></span> Registrarse</a>
+                                                </li>
+                                            @endif
+                                        </div>
+                                    @endauth
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-
         </div>
-
-    </div>
-
-
-    <div class="container">
-        <div class="card-group mt-4">
-
-            @foreach ($inmuebles as $inmueble)
-
-            <div class="col-12 col-lg-4">
-                <div class="card text-center border-info h-100">
-                    <div class="card-body">
-                        <img class="card-img-top" src="{{asset($inmueble->imagen)}}" alt="Card image cap">
-                        <h4 class="card-title">{{$inmueble->direccion}}</h4>
-                        <p class="card-text">{{$inmueble->descripcion}}</p>
-                        <p class="card-text"><small class="text-muted">{{$inmueble->precio}}€</small>
-                            <small class="text-muted font-weight-bold">{{$inmueble->metrosCuadrados}}m2</small>
-                        </p>
-                        @if (Route::has('login'))
-
-                        @auth
-                        @if ($inmueble->reserva == "no")
-                        <p class="card-text"><small class="text-muted">
-                                <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
-                                    @csrf
-                                    @method('put')
-
-                                    <button type="submit" class="btn btn-outline-danger btn-xs" value="{{Auth::user()->email}}" name="reservado">RESERVAR<i class="fa fa-trash" aria-hidden="true"></i></button>
-                                </form>
-
-
-                            </small> </p>
-                        @else
-                        @if ($inmueble->reserva == Auth::user()->email)
-                        <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
-                                    @csrf
-                                    @method('put')
-
-                                    <button type="submit" class="btn btn-outline-primary btn-xs" value="no" name="reservado">QUITAR-RESERVA<i class="fa fa-trash" aria-hidden="true"></i></button>
-                                </form>
-                       
-                        
-                            @else
-                        <p class="card-text"><small class="text-muted">RESERVADO {{$inmueble->reserva}}</small> </p>
-                        @endif
-                        @endif
-                        @endif
-                        @endauth
+        <!-- Hero -->
+        <div class="row">
+            <div class="col p-0">
+                <div class="container col-xxl-8 px-4 py-5">
+                    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                        <div class="col-10 col-sm-8 col-lg-6">
+                            <img src="/imagenes/hero.svg" class="d-block mx-lg-auto img-fluid" alt="Hero Img"
+                                width="700" height="500" loading="lazy">
+                        </div>
+                        <div class="col-lg-6">
+                            <h1 class="display-5 fw-bold lh-1 mb-3">Encuentra las mejores viviendas aquí</h1>
+                            <p class="lead">Tenemos las mejores viviendas y ofertas que podrá encontrar en el mercado</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </header>
+    <main class="container-fluid text-center my-5">
+        <h1 class="display-5 fw-bold mb-5">Nuestras viviendas disponibles</h1>
+        <div class="card-group mt-3">
+            @foreach ($inmuebles as $inmueble)
+
+                <div class="col-12 col-lg-4 col-md-6">
+                    <div class="card text-center border border-dark h-100 rounded mx-2">
+                        <div class="card-body p-0">
+                            <img class="card-img-top imagen" src="{{ asset($inmueble->imagen) }}" alt="Card image cap">
+                            <div class="p-4 d-flex align-items-center flex-column">
+                                <h4 class="card-title">{{ $inmueble->direccion }}</h4>
+                            <p class="card-text">{{ $inmueble->descripcion }}</p>
+                            <p class="card-text"><small class="text-muted">{{ $inmueble->precio }}€</small>
+                                <small class="text-muted font-weight-bold">{{ $inmueble->metrosCuadrados }}m2</small>
+                            </p>
+                            @if (Route::has('login'))
+                                @auth
+                                    @if ($inmueble->reserva == 'no')
+                                        <p class="card-text"><small class="text-muted">
+                                                <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
+                                                    @csrf
+                                                    @method('put')
+
+                                                    <button type="submit" class="btn btn-success btn-xs"
+                                                        value="{{ Auth::user()->email }}" name="reservado">RESERVAR<i
+                                                            class="fa fa-trash" aria-hidden="true"></i></button>
+                                                </form>
+
+
+                                            </small> </p>
+                                    @else
+                                        @if ($inmueble->reserva == Auth::user()->email)
+                                            <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
+                                                @csrf
+                                                @method('put')
+
+                                                <button type="submit" class="btn btn-danger btn-xs"
+                                                    value="no" name="reservado">ELIMINAR RESERVA<i class="fa fa-trash"
+                                                        aria-hidden="true"></i></button>
+                                            </form>
+                                        @else
+                                            <p class="card-text"><small class="text-muted">RESERVADO
+                                                    {{ $inmueble->reserva }}</small> </p>
+                                        @endif
+                                    @endif
+                                @endif
+                            @endauth
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
             @endforeach
 
         </div>
-    </div>
+    </main>
 
 
     </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
