@@ -21,8 +21,8 @@
             padding: 0;
         }
 
-        @media (min-width: 576px){
-            .imagen{
+        @media (min-width: 768px) {
+            .imagen {
                 max-height: 12rem;
             }
         }
@@ -125,7 +125,8 @@
                         </div>
                         <div class="col-lg-6">
                             <h1 class="display-5 fw-bold lh-1 mb-3">Encuentra las mejores viviendas aquí</h1>
-                            <p class="lead">Tenemos las mejores viviendas y ofertas que podrá encontrar en el mercado</p>
+                            <p class="lead">Tenemos las mejores viviendas y ofertas que podrá encontrar en el mercado
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -134,59 +135,62 @@
     </header>
     <main class="container-fluid text-center my-5">
         <h1 class="display-5 fw-bold mb-5">Nuestras viviendas disponibles</h1>
-        <div class="card-group mt-3">
-            @foreach ($inmuebles as $inmueble)
+        <div class="card-group">
+            <div class="row">
+                @foreach ($inmuebles as $inmueble)
+                    <div class="col-12 col-lg-4 col-md-6 my-2">
+                        <div class="card text-center border border-dark h-100 rounded">
+                            <div class="card-body p-0">
+                                <img class="card-img-top imagen" src="{{ asset($inmueble->imagen) }}"
+                                    alt="Card image cap">
+                                <div class="p-4 d-flex align-items-center flex-column g-1">
+                                    <h4 class="card-title">{{ $inmueble->direccion }}</h4>
+                                    <p class="card-text">Dirección: {{ $inmueble->descripcion }}</p>
+                                    <p class="card-text">Población: {{ $inmueble->poblacion }}</p>
+                                    <small
+                                        class="text-muted font-weight-bold">{{ $inmueble->metrosCuadrados }}m2</small>
+                                    <h3 class="card-text">{{ $inmueble->precio }}€</h3>
+                                    </h3>
+                                    @if (Route::has('login'))
+                                        @auth
+                                            @if ($inmueble->reserva == 'no')
+                                                <p class="card-text"><small class="text-muted">
+                                                        <form method="POST"
+                                                            action="{{ url("welcome/{$inmueble->id}") }}">
+                                                            @csrf
+                                                            @method('put')
 
-                <div class="col-12 col-lg-4 col-md-6">
-                    <div class="card text-center border border-dark h-100 rounded mx-2">
-                        <div class="card-body p-0">
-                            <img class="card-img-top imagen" src="{{ asset($inmueble->imagen) }}" alt="Card image cap">
-                            <div class="p-4 d-flex align-items-center flex-column">
-                                <h4 class="card-title">{{ $inmueble->direccion }}</h4>
-                            <p class="card-text">{{ $inmueble->descripcion }}</p>
-                            <p class="card-text"><small class="text-muted">{{ $inmueble->precio }}€</small>
-                                <small class="text-muted font-weight-bold">{{ $inmueble->metrosCuadrados }}m2</small>
-                            </p>
-                            @if (Route::has('login'))
-                                @auth
-                                    @if ($inmueble->reserva == 'no')
-                                        <p class="card-text"><small class="text-muted">
-                                                <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
-                                                    @csrf
-                                                    @method('put')
-
-                                                    <button type="submit" class="btn btn-success btn-xs"
-                                                        value="{{ Auth::user()->email }}" name="reservado">RESERVAR<i
-                                                            class="fa fa-trash" aria-hidden="true"></i></button>
-                                                </form>
+                                                            <button type="submit" class="btn btn-success btn-xs"
+                                                                value="{{ Auth::user()->email }}"
+                                                                name="reservado">RESERVAR<i class="fa fa-trash"
+                                                                    aria-hidden="true"></i></button>
+                                                        </form>
 
 
-                                            </small> </p>
-                                    @else
-                                        @if ($inmueble->reserva == Auth::user()->email)
-                                            <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
-                                                @csrf
-                                                @method('put')
+                                                    </small> </p>
+                                            @else
+                                                @if ($inmueble->reserva == Auth::user()->email)
+                                                    <form method="POST" action="{{ url("welcome/{$inmueble->id}") }}">
+                                                        @csrf
+                                                        @method('put')
 
-                                                <button type="submit" class="btn btn-danger btn-xs"
-                                                    value="no" name="reservado">ELIMINAR RESERVA<i class="fa fa-trash"
-                                                        aria-hidden="true"></i></button>
-                                            </form>
-                                        @else
-                                            <p class="card-text"><small class="text-muted">RESERVADO
-                                                    {{ $inmueble->reserva }}</small> </p>
+                                                        <button type="submit" class="btn btn-danger btn-xs"
+                                                            value="no" name="reservado">ELIMINAR RESERVA<i
+                                                                class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    </form>
+                                                @else
+                                                    <p class="card-text"><small class="text-muted">RESERVADO
+                                                            {{ $inmueble->reserva }}</small> </p>
+                                                @endif
+                                            @endif
                                         @endif
-                                    @endif
-                                @endif
-                            @endauth
+                                    @endauth
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-            @endforeach
-
+                @endforeach
+            </div>
         </div>
     </main>
 
