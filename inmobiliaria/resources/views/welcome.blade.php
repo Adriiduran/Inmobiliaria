@@ -62,6 +62,10 @@
                                                         </svg></span>{{ Auth::user()->name }}</h5>
                                             </div>
                                             <div class="ms-3">
+                                                <li><h5><a class="dropdown-item" href="{{ route('profile.edit') }}">Perfil</h5></a>
+                                                </li>
+                                            </div>
+                                            <div class="ms-3">
                                                 <li class="nav-item h5 text-dark">
                                                     <button type="submit" class="btn btn-danger">
                                                         <span> <svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -75,9 +79,6 @@
                                                         {{ __('Cerrar Sesion') }}
                                                     </button>
                                                 </li>
-                                            </div>
-                                            <div class="ms-3">
-                                            <li><a class="dropdown-item" href="{{route('profile.edit') }}">Perfil</a></li>
                                             </div>
                                         </form>
                                     @else
