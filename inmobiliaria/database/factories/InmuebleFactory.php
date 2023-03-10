@@ -23,23 +23,7 @@ class InmuebleFactory extends Factory
             'poblacion'=> $this->faker->randomElement(['Utrera','Montellano','Sevilla','Los Palacios']),
             'precio'=> $this->faker->numberBetween(100000,1000000),
             'metrosCuadrados'=> $this->faker->numberBetween(50,300),
-            'imagen' => $this->faker->randomElement(['imagenes/img1.png'
-            ,'imagenes/img2.png'
-            ,'imagenes/img3.png'
-            ,'imagenes/img4.png'
-            ,'imagenes/img5.png'
-            ,'imagenes/img6.png'
-            ,'imagenes/img7.png'
-            ,'imagenes/img8.png'
-            ,'imagenes/img9.png'
-            ,'imagenes/img10.png'
-            ,'imagenes/img11.png'
-            ,'imagenes/img12.png'
-            ,'imagenes/img13.png'
-            ,'imagenes/img15.png'
-            ,'imagenes/img16.png'
-            ,'imagenes/img17.png'
-            ,'imagenes/img18.png']),
+            'imagen' => $this->faker->randomElement(['imagenes/pruebacasa1.jpg','imagenes/pruebacasa2.jpg','imagenes/pruebacasa3.jpg','imagenes/pruebacasa4.jpg','imagenes/pruebacasa5.jpg','imagenes/pruebacasa6.jpg',]),
         ];
     }
 }

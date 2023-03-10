@@ -143,7 +143,7 @@
                     <div class="col-12 col-lg-4 col-md-6 my-2">
                         <div class="card text-center border border-dark h-100 rounded">
                             <div class="card-body p-0">
-                                <img class="card-img-top imagen" src="{{ asset($inmueble->imagen) }}"
+                                <img class="card-img-top img-fluid" src="{{ asset($inmueble->imagen) }}"
                                     alt="Card image cap">
                                 <div class="p-4 d-flex align-items-center flex-column g-1">
                                     <h4 class="card-title">{{ $inmueble->direccion }}</h4>
