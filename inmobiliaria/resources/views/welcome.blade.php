@@ -142,7 +142,7 @@
             <div class="row">
                 @foreach ($inmuebles as $inmueble)
                     <div class="col-12 col-lg-4 col-md-6 my-2">
-                        <div class="card text-center border border-dark h-100 rounded">
+                        <div class="card text-center border border-dark h-100">
                             <div class="card-body p-0">
                                 <img class="card-img-top img-fluid" src="{{ asset($inmueble->imagen) }}"
                                     alt="Card image cap">
