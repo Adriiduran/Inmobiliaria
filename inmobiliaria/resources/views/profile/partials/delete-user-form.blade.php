@@ -1,15 +1,44 @@
-<section class="space-y-6">
-    <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Borrar cuenta') }}
-        </h2>
+<head>
+    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    {{-- Styles --}}
+    <style>
+        /*Simple Normalize*/
+        * {
+            box-sizing: border-box
+        }
 
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #eee;
+        }
+
+        @media (min-width: 768px) {
+            .imagen {
+                max-height: 12rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <script src="../resources/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<section class="space-y-6">
+
+    <header>
+
+    <div class="col-lg-12 col-xl-11">
+            <h1> {{ __('Borrar cuenta') }}</h1>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __('Una vez que se elimine su cuenta, todos sus recursos y datos se eliminarán de forma permanente. Antes de eliminar su cuenta, descargue cualquier dato o información que desee conservar
 .') }}
         </p>
+        </div>
+
     </header>
 
+    
     <x-danger-button
         x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
